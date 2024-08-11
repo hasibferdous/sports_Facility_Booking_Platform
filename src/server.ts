@@ -1,7 +1,8 @@
-import mongoose from 'mongoose';
-import app from './app';
-import config from './app/config';
+import mongoose from "mongoose";
+import app from "./app";
+import config from "./app/config";
 
+//connecting with mongoose
 async function main() {
   try {
     await mongoose.connect(config.database_url as string);

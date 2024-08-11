@@ -1,5 +1,5 @@
-import cors from 'cors';
-import express, { Application, Request, Response } from 'express';
+import cors from "cors";
+import express, { Application, Request, Response } from "express";
 
 const app: Application = express();
 
@@ -12,6 +12,6 @@ const test = (req: Request, res: Response) => {
   res.send(a);
 };
 
-app.get('/', test);
+app.get("/", test);
 
 export default app;
