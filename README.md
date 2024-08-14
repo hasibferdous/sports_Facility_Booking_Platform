@@ -1,27 +1,17 @@
+# Sports Facility Booking Management Platform
+Backend for a sports facility booking platform.
+
+### Live Deployment Link (Server)
+
+### GitHub Repository Links (Server)
+
+### Project Overview Video
 
 
-
-
-Live Deployment Link (Server)
-
-GitHub Repository Links (Server)
-
-Project Overview Video. (A brief video providing an overview of the project.)
-
-
-
-
-Programming Language: TypeScript
+# Programming Language: TypeScript
 Web Framework: Express.js
 ODM & Validation Library: Mongoose for MongoDB
 
-
-Backend Development:
-
-Node.js
-Express.js
-Mongoose
-TypeScript
 
 
 
