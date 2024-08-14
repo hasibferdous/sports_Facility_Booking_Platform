@@ -8,17 +8,26 @@ Backend for a sports facility booking platform.
 ### Project Overview Video
 
 
-# Programming Language: TypeScript
-Web Framework: Express.js
-ODM & Validation Library: Mongoose for MongoDB
+## Technologies used:
+- TypeScript
+- Node.js
+- Express.js
+- Mongoose for MongoDB
+- Zod
+- JWT
+
+## Features:
+
+- User can Sign Up and Login using user's email and password and other information.
+- Admin can create any sports facility which contain sports's name, description, pricePerHour, location"
 
 
+### API Endpoints
 
+**User Sign Up**
+----------------
+- Route: POST /api/auth/signup
 
-API Endpoints
-User Routes
-User Sign Up
-Route: POST /api/auth/signup
 Request Body:
 {
   "name": "Programming Hero",
@@ -28,6 +37,7 @@ Request Body:
   "role": "admin", // or 'user'
   "address": "Level-4, 34, Awal Centre, Banani, Dhaka"
 }
+
 Response:
 {
   "success": true,
@@ -42,13 +52,17 @@ Response:
     "address": "Level-4, 34, Awal Centre, Banani, Dhaka"
   }
 }
-User Login
-Route: POST /api/auth/login
+
+**User Login**
+---------------
+- Route: POST /api/auth/login
+
 Request Body:
 {
   "email": "web@programming-hero.com",
   "password": "programming-hero"
 }
+
 Response:
 {
   "success": true,
@@ -64,16 +78,22 @@ Response:
     "address": "Level-4, 34, Awal Centre, Ban Myeni, Dhaka"
   }
 }
-Create a Facility (Admin Only)
-Route: POST /api/facility
+
+**Create a Facility (Admin Only)**
+----------------------------------
+- Route: POST /api/facility
+
 Headers:
+
 Authorization: Bearer JWT_TOKEN
+
 {
   "name": "Tennis Court",
   "description": "Outdoor tennis court with synthetic surface.",
   "pricePerHour": 30,
   "location": "456 Sports Ave, Springfield"
 }
+
 {
   "success": true,
   "statusCode": 200,
@@ -87,8 +107,11 @@ Authorization: Bearer JWT_TOKEN
     "isDeleted": false
   }
 }
-Update a Facility (Admin Only)
-Route: PUT /api/facility/:id
+
+**Update a Facility (Admin Only)**
+----------------------------------
+- Route: PUT /api/facility/:id
+
 Headers:
 Authorization: Bearer JWT_TOKEN
 {
@@ -97,6 +120,7 @@ Authorization: Bearer JWT_TOKEN
   "pricePerHour": 35,
   "location": "789 Sports Ave, Springfield"
 }
+
 Response
 {
   "success": true,
@@ -111,10 +135,14 @@ Response
     "isDeleted": false
   }
 }
-Delete a Facility - Soft Delete (Admin Only)
-Route: DELETE /api/facility/:id
+
+**Delete a Facility - Soft Delete (Admin Only)**
+-----------------------------------------
+- Route: DELETE /api/facility/:id
+
 Headers:
       Authorization: Bearer JWT_TOKEN
+
 Response:
 {
   "success": true,
@@ -129,9 +157,12 @@ Response:
       "isDeleted": true
     }
 }
-6. Get All Facilities
 
-Route: GET /api/facility
+
+**Get All Facilities**
+----------------------
+- Route: GET /api/facility
+
 Response:
 {
   "success": true,
