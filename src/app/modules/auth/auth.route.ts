@@ -6,14 +6,14 @@ import { authValidation } from "./auth.validation";
 
 const router = Router();
 
-// sign-up
+//sign-up
 router.post(
   "/signup",
   validateRequest(userValidation.userValidationSchema),
   AuthControllers.signUp
 );
 
-// login
+//login
 router.post(
   "/login",
   validateRequest(authValidation.loginValidationSchema),

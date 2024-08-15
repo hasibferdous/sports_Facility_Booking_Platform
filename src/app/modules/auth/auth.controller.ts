@@ -5,7 +5,7 @@ import sendResponse from "../../utils/sendResponse";
 import httpStatus from "http-status";
 import config from "../../config";
 
-// signup
+//signing up
 const signUp: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const result = await AuthServices.signUpUserIntoDB(req.body);
@@ -19,7 +19,7 @@ const signUp: RequestHandler = catchAsync(
   }
 );
 
-// login
+//login
 const login: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const result = await AuthServices.loginUserIntoDB(req.body);

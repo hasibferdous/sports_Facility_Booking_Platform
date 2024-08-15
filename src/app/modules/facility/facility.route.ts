@@ -6,7 +6,7 @@ import auth from "../../middlewares/auth";
 
 const router = Router();
 
-// create new facility
+//create new facility
 router.post(
   "/",
   auth("admin"),
@@ -14,7 +14,7 @@ router.post(
   FacilityControllers.createFacility
 );
 
-// update facility
+//update facility
 router.put(
   "/:id",
   auth("admin"),
@@ -22,10 +22,10 @@ router.put(
   FacilityControllers.updateFacility
 );
 
-// delete facility
+//delete facility
 router.delete("/:id", auth("admin"), FacilityControllers.deleteFacility);
 
-// retrieve all facilities
+//retrieve all facilities
 router.get("/", FacilityControllers.getAllFacilities);
 
 export const FacilityRoutes = router;

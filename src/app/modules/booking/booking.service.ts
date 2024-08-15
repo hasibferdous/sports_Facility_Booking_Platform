@@ -5,22 +5,22 @@ import { Facility } from "../facility/facility.model";
 import AppError from "../../errors/AppError";
 import httpStatus from "http-status";
 import {
-  calculatePayableAmout,
+  calculatePayableAmount,
   isEndTimeBeforeStartTime,
   isTimeSlotAvailable,
 } from "./booking.utils";
 
-// create new booking into DB
+//create new booking
 const createBookingIntoDB = async (user: JwtPayload, payload: TBooking) => {
   const { date, startTime, endTime, facility } = payload;
 
-  // check if the facility exist
+  //check if the facility is exist
   const facilityObj = await Facility.findById(facility);
   if (!facilityObj) {
     throw new AppError(httpStatus.BAD_REQUEST, "This facility is not exist");
   }
 
-  // check if end time before start time
+  //check if end time before start time
   if (isEndTimeBeforeStartTime(startTime, endTime)) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
@@ -28,7 +28,7 @@ const createBookingIntoDB = async (user: JwtPayload, payload: TBooking) => {
     );
   }
 
-  // check if the time slot is available
+  //check if the time slot is available
   const assignedTimeSlots = await Booking.find({
     facility,
     date,
@@ -44,45 +44,45 @@ const createBookingIntoDB = async (user: JwtPayload, payload: TBooking) => {
     throw new AppError(httpStatus.CONFLICT, "Time slot is not available");
   }
 
-  // calculate payable amount
-  const payableAmount = calculatePayableAmout(
+  //calculate payable amount
+  const payableAmount = calculatePayableAmount(
     date,
     startTime,
     endTime,
     facilityObj?.pricePerHour
   );
 
-  // set payableAmount to the payload
+  //set payableAmount to the payload
   payload.payableAmount = payableAmount;
 
-  // set current user to payload
+  //set current user to payload
   payload.user = user._id;
 
   const result = await Booking.create(payload);
   return result;
 };
 
-// retrieve all bookings
+//retrieve all bookings
 const getAllBookingsFromDB = async () => {
   const result = await Booking.find().populate("user").populate("facility");
   return result;
 };
 
-// retrieve bookings by user
+//retrieve bookings by user
 const getBookingsByUserFromDB = async (user: string) => {
   const result = await Booking.find({ user }).populate("facility");
   return result;
 };
 
-// cancel booking
+//cancel booking
 const cancelBookingFromDB = async (id: string, userId: string) => {
-  // check if the booking is exist
+  //check if the booking is exist
   const isBookingExist = await Booking.findById(id);
   if (!isBookingExist) {
     throw new AppError(httpStatus.BAD_REQUEST, "This booking is not exist");
   }
 
-  // check if the user of booking and requested user is same
+  //check the user of booking and requested user
   if (!isBookingExist.user.equals(userId)) {
     throw new AppError(
       httpStatus.UNAUTHORIZED,

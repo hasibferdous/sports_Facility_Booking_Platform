@@ -8,7 +8,7 @@ import { User } from "../modules/user/user.model";
 
 const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    // check if the token is exist
+    //check if the token is already exist
     const token = req.headers.authorization?.split(" ")[1];
     if (!token) {
       return res.status(httpStatus.UNAUTHORIZED).json({
@@ -18,7 +18,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
       });
     }
 
-    // verify token
+    //verify the token
     let decoded;
     try {
       decoded = jwt.verify(
@@ -35,7 +35,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
 
     const { email, role } = decoded;
 
-    // check if the user exist
+    //check if the user is exist
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(httpStatus.UNAUTHORIZED).json({
@@ -45,7 +45,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
       });
     }
 
-    // check user role and authorize
+    //check user role and authorization
     if (requiredRoles && !requiredRoles.includes(role)) {
       return res.status(httpStatus.UNAUTHORIZED).json({
         success: false,
@@ -54,7 +54,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
       });
     }
 
-    // decoded
+    //decoded
     req.user = user;
 
     next();

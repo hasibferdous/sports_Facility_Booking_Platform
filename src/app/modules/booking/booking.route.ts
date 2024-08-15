@@ -6,7 +6,7 @@ import { bookingValidation } from "./booking.validation";
 
 const router = Router();
 
-// create new facility
+//create new facility
 router.post(
   "/",
   auth("user"),
@@ -14,13 +14,13 @@ router.post(
   BookingControllers.createBooking
 );
 
-// retrieve bookings by specific user
+//retrieve bookings by specific user
 router.get("/:user", auth("user"), BookingControllers.getBookingsByUser);
 
-// retrieve all bookings
+//retrieve all bookings
 router.get("/", auth("admin"), BookingControllers.getAllBookings);
 
-// cancel booking
+//cancel booking
 router.delete("/:id", auth("user"), BookingControllers.cancelBooking);
 
 export const BookingRoutes = router;

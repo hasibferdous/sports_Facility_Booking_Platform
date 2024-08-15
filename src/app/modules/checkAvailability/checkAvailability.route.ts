@@ -3,7 +3,7 @@ import { CheckAvailabilityControllers } from "./checkAvailability.controller";
 
 const router = Router();
 
-// check Time Slot availability
+//check time slot availability
 router.get("/", CheckAvailabilityControllers.checkAvailability);
 
 export const CheckAvailabilityRoutes = router;

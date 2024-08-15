@@ -14,13 +14,13 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Sports Facility Booking Server is running successfully !");
 });
 
-// application routes
+//application routes
 app.use("/api", router);
 
-// Global Error handler middleware
+//global error handler middleware
 app.use(globalErrorhandler);
 
-// Not found middleware
+//not found middleware
 app.use(notFound);
 
 export default app;

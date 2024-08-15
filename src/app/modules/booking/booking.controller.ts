@@ -4,7 +4,7 @@ import sendResponse from "../../utils/sendResponse";
 import httpStatus from "http-status";
 import { BookingServices } from "./booking.service";
 
-// create a new booking
+//create a new booking
 const createBooking: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const user = req.user;
@@ -20,7 +20,7 @@ const createBooking: RequestHandler = catchAsync(
   }
 );
 
-// retrieve all bookings
+//retrieve all bookings
 const getAllBookings: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const result = await BookingServices.getAllBookingsFromDB();
@@ -43,7 +43,7 @@ const getAllBookings: RequestHandler = catchAsync(
   }
 );
 
-// retrieve bookings by specific user
+//retrieve bookings by specific user
 const getBookingsByUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { user } = req.params;
@@ -68,7 +68,7 @@ const getBookingsByUser: RequestHandler = catchAsync(
   }
 );
 
-// cancel booking
+//cancel booking
 const cancelBooking: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { _id: userId } = req.user;

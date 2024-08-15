@@ -10,7 +10,7 @@ const timeStringSchema = z.string().refine(
   }
 );
 
-// validation for creating new booking
+//for creating new booking
 const createBookingValidationSchema = z.object({
   body: z.object({
     facility: z.string({ required_error: "Facility is required" }),
@@ -20,7 +20,7 @@ const createBookingValidationSchema = z.object({
   }),
 });
 
-// validation for updating exiting booking
+//for updating exiting booking
 const updateBookingValidationSchema = z.object({
   body: z.object({
     facility: z.string({ required_error: "Facility is required" }).optional(),

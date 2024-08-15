@@ -120,7 +120,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - Authorization: Bearer JWT_TOKEN
 
-{
+- {
 "name": "Tennis Court",
 "description": "Outdoor tennis court with synthetic surface.",
 "pricePerHour": 30,
@@ -148,7 +148,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - Headers:
 - Authorization: Bearer JWT_TOKEN
-  {
+- {
   "name": "Updated Tennis Court",
   "description": "Updated outdoor tennis court with synthetic surface.",
   "pricePerHour": 35,
@@ -242,7 +242,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - Headers:
 - Authorization: Bearer JWT_TOKEN
-  {
+- {
   "facility": "60d9c4e4f3b4b544b8b8d1c5",
   "date": "2024-06-15",
   "startTime": "10:00",
@@ -314,7 +314,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - Headers:
 - Authorization: Bearer JWT_TOKEN
-  {
+- {
   "success": true,
   "statusCode": 200,
   "message": "Bookings retrieved successfully",
@@ -345,7 +345,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - Headers:
 - Authorization: Bearer JWT_TOKEN
-  {
+- {
   "success": true,
   "statusCode": 200,
   "message": "Booking cancelled successfully",
@@ -372,7 +372,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - When retrieving data, if the database collection is empty or no matching data is found, return the message: "No data found."
 
-{
+- {
 "success": false,
 "statusCode": 404,
 "message": "No Data Found",
@@ -401,7 +401,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - Implementing a global "Not Found" handler for unmatched routes. When a route is not found, it responds with a generic message: "Not Found.”
 
-{
+- {
 "success": false,
 "statusCode": 404,
 "message": "Not Found",
@@ -411,7 +411,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 - Implementing an Authentication Middleware to authenticate your application. Ensures that only user and admin can access their own accessible routes.
 
-{
+- {
 "success": false,
 "statusCode": 401,
 "message": "You have no access to this route",
@@ -424,4 +424,4 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 ### By following these steps and utilizing the provided endpoints, you can effectively manage users, facilities, and bookings within the sports facility booking platform.
 
-## HAVE A GOOD DAY !##
+## HAVE A GOOD DAY !

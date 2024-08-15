@@ -5,13 +5,13 @@ import catchAsync from "../../utils/catchAsync";
 import { CheckAvailabilityServices } from "./checkAvailability.service";
 import { getTodaysDate } from "./checkAvailability.utils";
 
-// check Time slots availability
+//check time slots availability
 const checkAvailability: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const today = getTodaysDate();
     let date = today;
 
-    // set date if date provide as query
+    //set date if date provide as query
     if (req.query?.date) {
       date = req.query?.date as string;
     }

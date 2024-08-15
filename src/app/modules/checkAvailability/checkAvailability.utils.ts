@@ -1,15 +1,15 @@
 import { TSlot } from "./checkAvailability.interface";
 
-// get todays date
+//get today's date
 export const getTodaysDate = () => {
   const today = new Date();
 
-  // extract year, month, and day
+  //extract year, month, and day
   const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+  const month = String(today.getMonth() + 1).padStart(2, "0"); //months are zero-indexed
   const day = String(today.getDate()).padStart(2, "0");
 
-  // format the date as YYYY-MM-DD
+  //format the date as YYYY-MM-DD
   const formattedDate = `${year}-${month}-${day}`;
 
   return formattedDate;
@@ -21,7 +21,7 @@ export const findAvailableTimeSlots = (
 ) => {
   const availableSlots: TSlot[] = [];
 
-  // sort bookings in accending order
+  //sort bookings in ascending order
   bookings.sort((a, b) => a.startTime.localeCompare(b.startTime));
 
   let lastEndTime = "00:00";

@@ -6,10 +6,10 @@ import bcrypt from "bcrypt";
 import { createToken } from "./auth.utils";
 import config from "../../config";
 
-// sign-up
+//sign-up
 const signUpUserIntoDB = async (payload: TUser) => {
   const { email } = payload;
-  // check if the user already exist
+  //check if the user is already exist
   const user = await User.findOne({ email });
   if (user) {
     throw new AppError(httpStatus.CONFLICT, "User already registered");
@@ -17,7 +17,7 @@ const signUpUserIntoDB = async (payload: TUser) => {
 
   const result = await User.create(payload);
 
-  // send response without password
+  //send response without password
   const userResponse = {
     ...result.toObject(),
     password: undefined,
@@ -27,23 +27,23 @@ const signUpUserIntoDB = async (payload: TUser) => {
   return userResponse;
 };
 
-// login
+//login
 const loginUserIntoDB = async (payload: TUser) => {
   const { email, password } = payload;
 
-  // check if the user exist
+  //check if the user is exist
   const user = await User.findOne({ email }).select("+password");
   if (!user) {
     throw new AppError(httpStatus.NOT_FOUND, "User not found!");
   }
 
-  // verify password
+  //verify the password
   const verify = await bcrypt.compare(password, user?.password);
   if (!verify) {
     throw new AppError(httpStatus.BAD_REQUEST, "Incorrect password!");
   }
 
-  // generate jwt token
+  //generate jwt token
   const jwtPayload = {
     email: user?.email,
     role: user?.role,
@@ -55,7 +55,7 @@ const loginUserIntoDB = async (payload: TUser) => {
     config.jwt_access_expires_in as string
   );
 
-  // send response without password
+  //send response without password
   const userResponse = {
     ...user.toObject(),
     password: undefined,

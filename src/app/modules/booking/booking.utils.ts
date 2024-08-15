@@ -1,6 +1,6 @@
 import { TTimeSlot } from "./booking.interface";
 
-// check if end time before end time
+//check if end time before start time
 export const isEndTimeBeforeStartTime = (
   startTime: string,
   endTime: string
@@ -11,14 +11,14 @@ export const isEndTimeBeforeStartTime = (
   return start > end;
 };
 
-// calculate the payable amount
-export const calculatePayableAmout = (
+//calculate the payable amount
+export const calculatePayableAmount = (
   date: string,
   startTime: string,
   endTime: string,
   pricePerHour: number
 ) => {
-  // calculate the duration in hours
+  //calculate the duration in hours
   const start = new Date(`${date}T${startTime}:00`);
   const end = new Date(`${date}T${endTime}:00`);
   const durationInHours = (end.getTime() - start.getTime()) / (1000 * 60 * 60);
@@ -28,7 +28,7 @@ export const calculatePayableAmout = (
   return payableAmount;
 };
 
-// check time slot available
+//check available time slot
 export const isTimeSlotAvailable = (
   assignedTimeSlots: TTimeSlot[],
   newTimeSlot: TTimeSlot

@@ -4,7 +4,7 @@ import sendResponse from "../../utils/sendResponse";
 import httpStatus from "http-status";
 import { FacilityServices } from "./facility.service";
 
-// create a new facility
+//create a new facility
 const createFacility: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const result = await FacilityServices.createFacilityIntoDB(req.body);
@@ -18,7 +18,7 @@ const createFacility: RequestHandler = catchAsync(
   }
 );
 
-// update facility
+//update facility
 const updateFacility: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
@@ -34,7 +34,7 @@ const updateFacility: RequestHandler = catchAsync(
   }
 );
 
-// delete facility
+//delete facility
 const deleteFacility: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
@@ -50,7 +50,7 @@ const deleteFacility: RequestHandler = catchAsync(
   }
 );
 
-// retrieve all facilities
+//retrieve all facilities
 const getAllFacilities: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const result = await FacilityServices.getAllFacilitiesFromDB();
