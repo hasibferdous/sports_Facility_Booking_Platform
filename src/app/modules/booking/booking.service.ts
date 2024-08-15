@@ -10,7 +10,7 @@ import {
   isTimeSlotAvailable,
 } from "./booking.utils";
 
-// create new bookin into DB
+// create new booking into DB
 const createBookingIntoDB = async (user: JwtPayload, payload: TBooking) => {
   const { date, startTime, endTime, facility } = payload;
 

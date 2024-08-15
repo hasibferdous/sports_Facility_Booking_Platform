@@ -19,7 +19,10 @@ Backend for a sports facility booking platform.
 ## Features:
 
 - User can Sign Up and Login using user's email and password and other information.
-- Admin can create any sports facility which contain sports's name, description, pricePerHour, location"
+- Admin can create any sports facility which contain sports's name, description, pricePerHour, location.
+- Admin can update any sports facility related information.
+- Admin can delete any sports facility.
+-
 
 
 ### API Endpoints
