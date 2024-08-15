@@ -10,7 +10,7 @@ const createFacilityIntoDB = async (payload: TFacility) => {
   // check if the facility already exist
   const isFacilityExist = await Facility.findOne({ name, location });
   if (isFacilityExist) {
-    throw new AppError(httpStatus.CONFLICT, "This facility already exist");
+    throw new AppError(httpStatus.CONFLICT, "This facility is already exist");
   }
 
   const result = await Facility.create(payload);

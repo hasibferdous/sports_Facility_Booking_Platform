@@ -22,7 +22,7 @@ Backend for a sports facility booking platform.
 - Admin can create any sports facility which contain sports's name, description, pricePerHour, location.
 - Admin can update any sports facility related information.
 - Admin can delete any sports facility.
--
+- 
 
 
 ### API Endpoints
