@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import catchAsync from "../utils/catchAsync";
 import { TUserRole } from "../modules/user/user.interface";
-import AppError from "../errors/AppError";
 import httpStatus from "http-status";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import config from "../config";
@@ -12,10 +11,11 @@ const auth = (...requiredRoles: TUserRole[]) => {
     // check if the token is exist
     const token = req.headers.authorization?.split(" ")[1];
     if (!token) {
-      throw new AppError(
-        httpStatus.UNAUTHORIZED,
-        "You have no access to this route"
-      );
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        statusCode: httpStatus.UNAUTHORIZED,
+        message: "You have no access to this route",
+      });
     }
 
     // verify token
@@ -26,10 +26,11 @@ const auth = (...requiredRoles: TUserRole[]) => {
         config.jwt_access_secret as string
       ) as JwtPayload;
     } catch (error) {
-      throw new AppError(
-        httpStatus.UNAUTHORIZED,
-        "You have no access to this route"
-      );
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        statusCode: httpStatus.UNAUTHORIZED,
+        message: "You have no access to this route",
+      });
     }
 
     const { email, role } = decoded;
@@ -37,18 +38,20 @@ const auth = (...requiredRoles: TUserRole[]) => {
     // check if the user exist
     const user = await User.findOne({ email });
     if (!user) {
-      throw new AppError(
-        httpStatus.UNAUTHORIZED,
-        "You have no access to this route"
-      );
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        statusCode: httpStatus.UNAUTHORIZED,
+        message: "You have no access to this route",
+      });
     }
 
     // check user role and authorize
     if (requiredRoles && !requiredRoles.includes(role)) {
-      throw new AppError(
-        httpStatus.UNAUTHORIZED,
-        "You have no access to this route"
-      );
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        statusCode: httpStatus.UNAUTHORIZED,
+        message: "You have no access to this route",
+      });
     }
 
     // decoded
