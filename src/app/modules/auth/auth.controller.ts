@@ -16,7 +16,7 @@ const signUp: RequestHandler = catchAsync(
       message: "User registered successfully",
       data: result,
     });
-  }
+  },
 );
 
 //login
@@ -37,7 +37,7 @@ const login: RequestHandler = catchAsync(
       token: accessToken,
       data: user,
     });
-  }
+  },
 );
 
 export const AuthControllers = {

@@ -24,7 +24,7 @@ const createBookingIntoDB = async (user: JwtPayload, payload: TBooking) => {
   if (isEndTimeBeforeStartTime(startTime, endTime)) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
-      "StartTime should be before EndTime"
+      "StartTime should be before EndTime",
     );
   }
 
@@ -49,7 +49,7 @@ const createBookingIntoDB = async (user: JwtPayload, payload: TBooking) => {
     date,
     startTime,
     endTime,
-    facilityObj?.pricePerHour
+    facilityObj?.pricePerHour,
   );
 
   //set payableAmount to the payload
@@ -86,14 +86,14 @@ const cancelBookingFromDB = async (id: string, userId: string) => {
   if (!isBookingExist.user.equals(userId)) {
     throw new AppError(
       httpStatus.UNAUTHORIZED,
-      "This booking is created by others. You can not cancel this booking."
+      "This booking is created by others. You can not cancel this booking.",
     );
   }
 
   const result = await Booking.findByIdAndUpdate(
     id,
     { isBooked: "canceled" },
-    { new: true }
+    { new: true },
   ).populate("facility");
   return result;
 };

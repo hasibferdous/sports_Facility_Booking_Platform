@@ -11,7 +11,7 @@ router.post(
   "/",
   auth("user"),
   validateRequest(bookingValidation.createBookingValidationSchema),
-  BookingControllers.createBooking
+  BookingControllers.createBooking,
 );
 
 //retrieve bookings by specific user

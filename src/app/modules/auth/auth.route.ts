@@ -10,14 +10,14 @@ const router = Router();
 router.post(
   "/signup",
   validateRequest(userValidation.userValidationSchema),
-  AuthControllers.signUp
+  AuthControllers.signUp,
 );
 
 //login
 router.post(
   "/login",
   validateRequest(authValidation.loginValidationSchema),
-  AuthControllers.login
+  AuthControllers.login,
 );
 
 export const AuthRoutes = router;

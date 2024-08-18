@@ -15,7 +15,7 @@ const createFacility: RequestHandler = catchAsync(
       message: "Facility added successfully",
       data: result,
     });
-  }
+  },
 );
 
 //update facility
@@ -31,7 +31,7 @@ const updateFacility: RequestHandler = catchAsync(
       message: "Facility updated successfully",
       data: result,
     });
-  }
+  },
 );
 
 //delete facility
@@ -47,7 +47,7 @@ const deleteFacility: RequestHandler = catchAsync(
       message: "Facility deleted successfully",
       data: result,
     });
-  }
+  },
 );
 
 //retrieve all facilities
@@ -70,7 +70,7 @@ const getAllFacilities: RequestHandler = catchAsync(
       message: "Facilities retrieved successfully",
       data: result,
     });
-  }
+  },
 );
 
 export const FacilityControllers = {

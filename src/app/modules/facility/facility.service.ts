@@ -45,7 +45,7 @@ const deleteFacilityIntoDB = async (id: string) => {
   const result = await Facility.findByIdAndUpdate(
     id,
     { isDeleted: true },
-    { new: true }
+    { new: true },
   );
 
   return result;

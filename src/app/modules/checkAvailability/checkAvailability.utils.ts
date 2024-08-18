@@ -17,7 +17,7 @@ export const getTodaysDate = () => {
 
 export const findAvailableTimeSlots = (
   bookings: TSlot[],
-  totalAvailableSlots: TSlot
+  totalAvailableSlots: TSlot,
 ) => {
   const availableSlots: TSlot[] = [];
 

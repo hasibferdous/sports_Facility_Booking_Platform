@@ -24,7 +24,7 @@ const checkAvailability: RequestHandler = catchAsync(
       message: "Availability checked successfully",
       data: result,
     });
-  }
+  },
 );
 
 export const CheckAvailabilityControllers = {

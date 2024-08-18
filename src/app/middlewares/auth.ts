@@ -23,7 +23,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
     try {
       decoded = jwt.verify(
         token as string,
-        config.jwt_access_secret as string
+        config.jwt_access_secret as string,
       ) as JwtPayload;
     } catch (error) {
       return res.status(httpStatus.UNAUTHORIZED).json({

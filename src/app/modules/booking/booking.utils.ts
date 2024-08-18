@@ -3,7 +3,7 @@ import { TTimeSlot } from "./booking.interface";
 //check if end time before start time
 export const isEndTimeBeforeStartTime = (
   startTime: string,
-  endTime: string
+  endTime: string,
 ) => {
   const start = new Date(`1970-01-01T${startTime}:00`);
   const end = new Date(`1970-01-01T${endTime}:00`);
@@ -16,7 +16,7 @@ export const calculatePayableAmount = (
   date: string,
   startTime: string,
   endTime: string,
-  pricePerHour: number
+  pricePerHour: number,
 ) => {
   //calculate the duration in hours
   const start = new Date(`${date}T${startTime}:00`);
@@ -31,7 +31,7 @@ export const calculatePayableAmount = (
 //check available time slot
 export const isTimeSlotAvailable = (
   assignedTimeSlots: TTimeSlot[],
-  newTimeSlot: TTimeSlot
+  newTimeSlot: TTimeSlot,
 ) => {
   for (const timeSlot of assignedTimeSlots) {
     const existingStartTime = new Date(`1970-01-01T${timeSlot.startTime}`);

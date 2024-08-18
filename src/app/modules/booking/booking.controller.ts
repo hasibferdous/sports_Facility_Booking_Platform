@@ -17,7 +17,7 @@ const createBooking: RequestHandler = catchAsync(
       message: "Booking created successfully",
       data: result,
     });
-  }
+  },
 );
 
 //retrieve all bookings
@@ -40,7 +40,7 @@ const getAllBookings: RequestHandler = catchAsync(
       message: "Bookings retrieved successfully",
       data: result,
     });
-  }
+  },
 );
 
 //retrieve bookings by specific user
@@ -65,7 +65,7 @@ const getBookingsByUser: RequestHandler = catchAsync(
       message: "Bookings retrieved successfully",
       data: result,
     });
-  }
+  },
 );
 
 //cancel booking
@@ -81,7 +81,7 @@ const cancelBooking: RequestHandler = catchAsync(
       message: "Booking cancelled  successfully",
       data: result,
     });
-  }
+  },
 );
 
 export const BookingControllers = {

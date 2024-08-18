@@ -11,7 +11,7 @@ router.post(
   "/",
   auth("admin"),
   validateRequest(facilityValidation.createFacilityValidationSchema),
-  FacilityControllers.createFacility
+  FacilityControllers.createFacility,
 );
 
 //update facility
@@ -19,7 +19,7 @@ router.put(
   "/:id",
   auth("admin"),
   validateRequest(facilityValidation.updateFacilityValidationSchema),
-  FacilityControllers.updateFacility
+  FacilityControllers.updateFacility,
 );
 
 //delete facility

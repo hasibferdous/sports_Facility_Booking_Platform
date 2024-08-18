@@ -3,9 +3,9 @@
 Backend for a sports facility booking platform.
 
 ### Live Deployment Link (Server)
+https://sports-facility-backend-ecru.vercel.app/ 
 
 ### GitHub Repository Links (Server)
-
 https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 ## Technologies used:
@@ -18,7 +18,6 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 - JWT
 
 ## Features:
-
 - User can Sign Up and Login using user's email and password and other information.
 - Admin can create any sports facility which contain sports's name, description, pricePerHour, location.
 - Admin can update any sports facility related information.
@@ -32,7 +31,7 @@ https://github.com/hasibferdous/sports_Facility_Booking_Platform
 
 
 **_Setup Instructions_**
-
+------------------------
 - First, clone the repository to your local machine using the following command: **_ git clone https://github.com/hasibferdous/sports_Facility_Booking_Platform.git _**
 
 - Navigate to the project directory: **_ cd sports_Facility_Booking_Platform _**

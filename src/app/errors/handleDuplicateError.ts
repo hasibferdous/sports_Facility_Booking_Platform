@@ -8,7 +8,7 @@ const handleDuplicateError = (err: any): TGenericErrorResponse => {
         path: value,
         message: `${err.keyValue[value]} is already exist`,
       };
-    }
+    },
   );
 
   const statusCode = 400;
